@@ -108,4 +108,52 @@ function xxxy() {
   }
 }
 
-xxxy();
+// xxxy();
+
+
+
+
+// Functions currying 
+
+// Currying transforms a function with multiple arguments into a sequence of functions that each take a single argument.
+
+function first(x) {
+  return function second(y) {
+    console.log(x + y)
+  }
+}
+
+
+const sum1 = first(3)
+// sum1(4)
+
+const sum2 = first(3)
+// sum1(8)
+
+
+// sum(1)(2)(3)()  // 6
+
+let sum = function (a) {
+  return function (b) {
+    if (b) {
+      return sum(a + b)
+    }
+    return a
+  }
+}
+
+console.log(sum(1)(2)())
+
+// using arrow function
+let summ = (a) => {
+  return (b) => {
+    return b ? summ(a + b) : a
+  }
+}
+
+console.log(summ(1)(2)(5)())
+
+// in one line
+
+let summm = a => b => b ? summm(a + b) : a;
+console.log(summm(1)(2)(5)(7)())
