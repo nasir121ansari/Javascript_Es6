@@ -172,3 +172,15 @@ Promise.all([fetchData1(), fetchData2(), fetchData3()])
 
 
 // Promise.allSettled  : Runs multiple promises in parallel Waits for all promises to settle, regardless of whether they resolve or reject.
+
+
+
+
+// Async and defer 
+
+/*
+async: The script runs as soon as it is downloaded, which can interrupt the HTML parsing.
+<script src="script1.js" async></script>
+// defer: The script runs after the HTML parsing is complete, maintaining the order of execution.
+<script src="script2.js" async></script>
+*/
