@@ -176,11 +176,32 @@ Promise.all([fetchData1(), fetchData2(), fetchData3()])
 
 
 
-// Async and defer 
+// Async and defer
 
 /*
 async: The script runs as soon as it is downloaded, which can interrupt the HTML parsing.
 <script src="script1.js" async></script>
 // defer: The script runs after the HTML parsing is complete, maintaining the order of execution.
 <script src="script2.js" async></script>
+*/
+
+
+
+// Local Storage
+
+// Data stored in local storage has no expiration time. It remains available even after the browser is closed and reopened.
+// Data is shared across all tabs and windows with the same origin (domain).
+
+
+// Session Storage
+
+// Data stored in session storage is only available for the duration of the page session. It is cleared when the page session ends.
+// Data is not shared across tabs or windows. 
+
+/*
+API Methods:
+setItem(key, value): Stores a key-value pair.
+getItem(key): Retrieves the value for a given key.
+removeItem(key): Removes the key-value pair for a given key.
+clear(): Clears all key-value pairs in the storage.
 */
