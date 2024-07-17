@@ -10,6 +10,9 @@
 // stopPropagation
 // The stopPropagation method is used to prevent further propagation of the current event in the capturing and bubbling phases
 
+// Use event.preventDefault() to stop the default action associated with the event.
+// Use event.stopImmediatePropagation() to stop the event from propagating further and prevent any other event listeners from being called on the same element.
+
 var div = document.querySelector("div")
 var button = document.querySelector("button")
 

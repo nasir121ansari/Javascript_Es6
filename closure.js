@@ -115,7 +115,7 @@ function xxxy() {
 
 // Functions currying 
 
-// Currying transforms a function with multiple arguments into a sequence of functions that each take a single argument.
+// Function currying is a technique in functional programming where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. 
 
 function first(x) {
   return function second(y) {
@@ -123,15 +123,11 @@ function first(x) {
   }
 }
 
-
-const sum1 = first(3)
-// sum1(4)
-
-const sum2 = first(3)
-// sum1(8)
+first(1)(2)
 
 
-// sum(1)(2)(3)()  // 6
+
+// infinite currying
 
 let sum = function (a) {
   return function (b) {
@@ -142,7 +138,7 @@ let sum = function (a) {
   }
 }
 
-console.log(sum(1)(2)())
+// console.log(sum(1)(2)())
 
 // using arrow function
 let summ = (a) => {
@@ -151,9 +147,9 @@ let summ = (a) => {
   }
 }
 
-console.log(summ(1)(2)(5)())
+// console.log(summ(1)(2)(5)())
 
 // in one line
 
 let summm = a => b => b ? summm(a + b) : a;
-console.log(summm(1)(2)(5)(7)())
+// console.log(summm(1)(2)(5)(7)())
