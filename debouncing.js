@@ -47,4 +47,4 @@ const throttle = (func, limit) => {
 
 
 
-const betterFunction1 = doBounce(getData, 300)
+const betterFunction1 = throttle(getData, 300)
