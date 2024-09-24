@@ -205,3 +205,33 @@ getItem(key): Retrieves the value for a given key.
 removeItem(key): Removes the key-value pair for a given key.
 clear(): Clears all key-value pairs in the storage.
 */
+
+
+
+
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        fetch("https://jsonplaceholder.typicode.com/posts")
+            .then((response) => {
+                if (!response.ok) {
+                    reject(new Error('Network response was not ok'));
+                }
+                return response.json();
+            })
+            .then((data) => {
+                resolve(data); // Resolve the promise with the data
+            })
+            .catch((err) => {
+                reject(err); // Reject the promise on error
+            });
+    });
+}
+
+// Using the fetchData function
+fetchData()
+    .then((data) => {
+        console.log(data); // Handle the fetched data
+    })
+    .catch((error) => {
+        console.error('Error fetching data:', error); // Handle any errors
+    });
