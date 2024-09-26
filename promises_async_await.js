@@ -163,7 +163,35 @@ Promise.all([fetchData1(), fetchData2(), fetchData3()])
     .catch((error) => {
         console.error('Error fetching data:', error);
     });
+// polyfill for promise.all 
+Promise.promisepolyfill = (promises) => {
+    return new Promise((res,rej) => {
+        const result = []
+        if (promises.length === 0) {
+            res(result);
+        }
+        let completedCount = 0; 
+        promises.forEach((promise,index) => {
+            promise.then((value) => {
+               result[index] = value
+               completedCount++;
+               if(completedCount === promise.length){
+                   res(result)
+               }
+            }).catch((err) => {
+                rej(err)
+            })
+        });
+    })
+}
 
+Promise.promisepolyfill([fetchData1(), fetchData2(), fetchData3()])
+    .then((results) => {
+        console.log('All data fetched:', results); // ["Data 1", "Data 2", "Data 3"]
+    })
+    .catch((error) => {
+        console.error('Error fetching data:', error);
+    });
 
 
 // Promise.all

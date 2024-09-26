@@ -46,3 +46,49 @@ const youngUsersWithReduce = users.reduce((acc, curr) => {
     return acc;
 }, []);
 console.log(youngUsersWithReduce); // Output: ['Nasir', 'Deepak']
+
+
+
+
+// poly fill of map 
+// array.map(function(currentValue, index, arr))
+Array.prototype.myMap = function(cb){
+    console.log('this',this)
+    let temp = [];
+    for(let i=0;i< this.length;i++){
+        temp.push(cb(this[i],i,this))
+    }
+    return temp
+  }
+  
+  let array11 = [1,2,3]
+  console.log(array11.myMap((item) =>  item*2))
+
+// polyfill of filter 
+// array.filter(function(currentValue, index, arr))
+Array.prototype.myFilter = function(cb){
+    console.log('this',this)
+    let temp = [];
+    for(let i=0;i< this.length;i++){
+        if(cb(this[i],i,this)){
+            temp.push(this[i])
+        }
+    }
+    return temp
+  }
+  
+  let array111 = [1,2,3]
+  console.log(array111.myFilter((item) =>  item % 2 == 0))
+
+
+// polyfill for reducer
+// array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+Array.prototype.myReduce = function(cb,initialValue) {
+    let acc = initialValue;
+    for(let i=0;i<this.length;i++){
+         acc = acc ? cb(acc,this[i],i,this) : this[i]
+    }
+    return acc
+}
+
+console.log(array111.myReduce((acc,curr) =>   acc+curr))
