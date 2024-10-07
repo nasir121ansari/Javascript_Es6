@@ -79,9 +79,9 @@ console.log(yourName);
 /*
 3. Function Scope: Variables declared with let inside a function have function scope.
 */
-var birthName = 'Rahul';
+let birthName = 'Rahul';
 function getNames() {
-    var birthName = 'Deepak';  // private for this function, cannot be accessed outside of the function
+    let birthName = 'Deepak';  // private for this function, cannot be accessed outside of the function
     console.log(birthName);
 }
 getNames();  // Deepak
