@@ -1,10 +1,14 @@
-// A Promise is a way to handle asynchronous operations. 
 /*
-A Promise has three states:
-
-Pending: The initial state, neither fulfilled nor rejected.
-Fulfilled: The operation completed successfully.
-Rejected: The operation failed.
+Before promise we used to depend on callback functions which have two disadvantages 
+1.) Callback Hell (Pyramid of doom) 
+2.) Inversion of control
+1) Inversion of control is overcome by using promise
+promise is object represent the eventual completion of asynchonous operation
+a)A promise has 3 states: pending | fulfilled | rejected.
+b) As soon as promise is fulfilled/rejected => It updates the empty object which is assigned undefined in pending state.
+c) A promise resolves only once and it is immutable in nature. 
+d) Using .then() we can attached the cb(callback) function.
+2) - To avoid callback hell (Pyramid of doom) => We use promise chaining. This way our code expands vertically instead of horizontally. Chaining is done using '.then()'
 */
 
 
@@ -111,14 +115,10 @@ const fetchUserActivity = (profile) => {
 
 // Chaining the promises
 fetchUser()
-    .then(user => fetchUserProfile(user))
+    .then(user =>  fetchUserProfile(user))
     .then(profile => fetchUserActivity(profile))
-    .then(activities => {
-        console.log('Fetched activities:', activities);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    .then(activities => console.log('Fetched activities:', activities))
+    .catch(error => console.error('Error:', error));
 
 
 
