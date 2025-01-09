@@ -18,7 +18,7 @@ const sum1 = () => 2 + 4;
 console.log("sum1", sum1());
 
 // 3. If we have a single argument
-const sum3 = (x) => x + 4; // Parentheses can be omitted for single arguments
+const sum3 = x => x + 4; // Parentheses can be omitted for single arguments
 console.log("sum3", sum3(1));
 
 const sum4 = (x) => x + 5;

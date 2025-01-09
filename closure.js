@@ -1,4 +1,4 @@
-// A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
+// A closure is the combination  of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
 
 // exmple-1
 // function x() {
@@ -34,14 +34,20 @@
 // z();
 
 // example-4
-function x() {
-  var a = 7;
-  function y() {
-    console.log(a);
+function outer() {
+  let b = 2; // Step 1: `b` is initially set to 2.
+
+  function inner() {
+      console.log(b); // Step 2: `inner` captures `b` from its enclosing scope.
   }
-  a = 100;
-  return y;
+
+  b = 100; // Step 3: Before returning `inner`, `b` is updated to 100.
+
+  return inner; // Step 4: `outer` returns the `inner` function.
 }
+
+outer()(); // Step 5: `outer()` returns `inner`, and calling it logs `b`.
+
 let z = x();
 // z(); // 100
 
